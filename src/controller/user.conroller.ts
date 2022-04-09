@@ -45,7 +45,7 @@ export class UserConroller {
             })       
            
            if( user == null){
-               res.status(404).send(`Invalid id:${req.params.id}`)
+               res.status(404).send(`Error: Invalid id:${req.params.id}`)
            }
            else{
                return res.json(user);
