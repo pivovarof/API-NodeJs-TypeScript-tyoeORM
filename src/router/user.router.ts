@@ -10,7 +10,10 @@ const userController = new UserConroller();
 
 
 router.post('/user', userController.createUser);
-router.get('/user/:id', userController.getOneUser);
-router.get('/users', userController.getAllUsers);
+router.get('/user/:userName', userController.getOneUser);
+router.get('/user/users', userController.getAllUsers);
+router.delete('/user/:userName', userController.deleteOneUser);
+router.put('/user/:userName', userController.updateUser);
+
 
 
