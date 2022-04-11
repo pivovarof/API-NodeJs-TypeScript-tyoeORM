@@ -1,8 +1,11 @@
-
+import cors from 'cors';
 import express from 'express';
 import "reflect-metadata";
 import { AppDataSource } from './data-source';
 import { router } from './router/user.router';
+
+
+
 
 
 
@@ -11,6 +14,7 @@ const port = process.env.PORT || 8000;
 const userRouter = router;
 
 app.use(express.json());
+app.use(cors());
 
 const main = async () => {
     try{
@@ -19,7 +23,9 @@ const main = async () => {
             console.log('Connected to database');
         })
         
+        app.use('/user/users', userRouter);
         app.use('/', userRouter);
+        
 
         app.listen(port, () => {
             console.log(`Server started on localhost:${port}`);

@@ -20,18 +20,7 @@ export class UserConroller {
         res.send('User saved!')
 
     }
-
-    async getAllUsers(req: Request, res: Response) {
-        const allUsers = await AppDataSource
-            .getRepository(User)
-            .createQueryBuilder("user")
-            .getMany()
-            .catch((er) => {
-                res.send(er);
-            })
-        res.json(allUsers);
-
-    }
+    
 
     async getOneUser(req: Request, res: Response) {
         const user = await AppDataSource
