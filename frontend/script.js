@@ -47,7 +47,7 @@ const createUsersList = (user, index) => {
 
     return (`<tr class="stringUser">
      <td class="columnInput">
-         <input type="text" class="name input" name="name" value=${user.name} >
+         <input type="text" class="name input" name="name" value=${user.name}>
      </td>
      <td class="columnInput">
          <input type="email" class="email input" name="email"  value=${user.email}>

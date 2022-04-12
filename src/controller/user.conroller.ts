@@ -26,14 +26,14 @@ export class UserConroller {
         const user = await AppDataSource
             .getRepository(User)
             .createQueryBuilder('user')
-            .where( 'user.userName = :userName', { userName: req.params.userName})
+            .where( 'user.id = :id', { id: req.params.id})
             .getOne()  
             .catch((er) => {
                 res.send(er);
             })       
            
            if( user == null){
-               res.status(404).send(`Error: Name "${req.params.userName}" does not exist`)
+               res.status(404).send(`Error: ID "${req.params.id}" does not exist`)
            }
            else{
                return res.json(user);
@@ -47,7 +47,7 @@ export class UserConroller {
             .createQueryBuilder()
             .delete()
             .from(User)
-            .where('user.userName = :userName', { userName: req.params.userName})
+            .where('id = :id', {id: req.params.id})
             .execute()  
             .catch((er) => {
                 res.send(er);

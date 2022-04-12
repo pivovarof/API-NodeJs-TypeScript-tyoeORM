@@ -5,10 +5,6 @@ import { AppDataSource } from './data-source';
 import { router } from './router/user.router';
 
 
-
-
-
-
 const app = express();
 const port = process.env.PORT || 8000;
 const userRouter = router;

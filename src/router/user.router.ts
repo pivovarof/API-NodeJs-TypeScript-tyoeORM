@@ -12,9 +12,9 @@ const allUsersController = new AllUsersController();
 router.get('/', allUsersController.getAllUsers);
 router.delete('/', allUsersController.deleteAllUser);
 router.post('/user', userController.createUser);
-router.get('/user/:userName', userController.getOneUser);
-router.delete('/user/:userName', userController.deleteOneUser);
-router.put('/user/:userName', userController.updateUser);
+router.get('/user/:id', userController.getOneUser);
+router.delete('/user/:id', userController.deleteOneUser);
+router.put('/user/:id', userController.updateUser);
 
 
 
