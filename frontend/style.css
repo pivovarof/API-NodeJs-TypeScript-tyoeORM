@@ -56,17 +56,30 @@ button{
     width: 25%;
 }
 
-input{
+.input{
     border: none;
     border-color: #39c;
     padding: 5px;   
     
 }
 
-input:hover, input:focus-within{
+.inputError{  
+    border: #eb1616 2px solid;      
+    padding: 5px;   
+    
+}
+
+.inputError::placeholder {
+    color: #eb1616;
+    
+  }
+
+
+.input:hover, input:focus-within{
     border: 1px solid #39c;    
     box-shadow: 0px 1px 9px 2px rgb(11 125 212)
 }
+
 
 .saveBtn{
     background-color: #35C121;
