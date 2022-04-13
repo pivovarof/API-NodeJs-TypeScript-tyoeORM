@@ -1,11 +1,9 @@
 const addBtn = document.getElementById('addBtn');
 const tbody = document.getElementById('tbody');
 const removeAll = document.getElementById('removeBtn');
-const mainUrl = 'http://localhost:8000/user';
-
+let confirmAll = document.getElementById('confirmAll');
 
 async function createTableUser(arr) {
-
 
     let result = arr.map((el, index) => {
 
@@ -162,13 +160,29 @@ const removeUser = i => {
 
 const deleteUser = async (id) => {
 
-    let response = await fetch(`http://localhost:8000/user/${id}`,
+    await fetch(`http://localhost:8000/user/${id}`,
         {
             method: 'DELETE'
         }
     )
     getAllusers()
 
+}
+
+removeAll.addEventListener('click', () => {
+    let stringUser = document.querySelectorAll('.stringUser');   
+    
+        confirmAll.classList.add('activeBtn');
+        stringUser.forEach(item => {
+            item.classList.add('remove');
+        })
+    
+});
+
+const deleteAll = async () => {
+    await fetch(`http://localhost:8000/user/users`,{ method: 'DELETE'})
+    confirmAll.classList.remove('activeBtn');
+    getAllusers()
 }
 
 
